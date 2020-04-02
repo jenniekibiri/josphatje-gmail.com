@@ -9,6 +9,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
+app.get('/helo',(req,res)=>{
+  res.render('hello')
+})
 const getBooks = (request, response) => {
   pool.query('SELECT * FROM books', (error, results) => {
   
