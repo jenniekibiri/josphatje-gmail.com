@@ -13,7 +13,7 @@ app.get('/helo',(req,res)=>{
   res.send('hello')
 })
 const getBooks = (request, response) => {
-  pool.query('SELECT * FROM books', (error, results) => {
+  pool.query('SELECT * FROM books', ( results) => {
   
     response.status(200).json(results.rows)
   })
@@ -38,6 +38,6 @@ app
   .post(addBook)
 
 // Start server
-app.listen(process.env.PORT || 3002, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Server listening`)
 })
