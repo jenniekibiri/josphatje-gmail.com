@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 app.get('/helo',(req,res)=>{
-  res.render('hello')
+  res.send('hello')
 })
 const getBooks = (request, response) => {
   pool.query('SELECT * FROM books', (error, results) => {
