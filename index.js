@@ -15,9 +15,11 @@ app.use(helmet())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const isProduction = process.env.NODE_ENV === 'production'
 const origin = {
-  origin: isProduction ? 'https://deploy-example5.herokuapp.com/' : '*',
+
+  origin: isProduction ? 'https://deploy-example5.herokuapp.com/' : 'http://localhost:5000/books',
 }
 
 app.use(cors(origin))

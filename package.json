@@ -22,6 +22,7 @@
     "fs": "0.0.1-security",
     "helmet": "^3.22.0",
     "https": "^1.0.0",
+    "nodejs-self-signed-certificate-example": "^1.1.2",
     "openssl": "^1.1.0",
     "pg": "^8.0.0"
   },
