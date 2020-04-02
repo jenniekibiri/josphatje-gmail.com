@@ -23,11 +23,15 @@ app.get('/helo',(req,res)=>{
   res.send('hello')
 })
 const getBooks = (request, response) => {
-  pool.query('SELECT * FROM books', ( results) => {
-  
+  pool.query('SELECT * FROM books', (error, results) => {
+    if (error) {
+      throw error
+    }
     response.status(200).json(results.rows)
+ 
   })
 }
+
 
 const addBook = (request, response) => {
   const { author, title } = request.body
