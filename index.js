@@ -1,15 +1,24 @@
 const helmet = require('helmet')
+const compression = require('compression')
+const rateLimit = require('express-rate-limit')
+const { body, check } = require('express-validator')
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const { pool } = require('./config')
 
 const app = express()
+app.use(compression())
 app.use(helmet())
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
+const isProduction = process.env.NODE_ENV === 'production'
+const origin = {
+  origin: isProduction ? 'https://deploy-example5.herokuapp.com/' : '*',
+}
 
+app.use(cors(origin))
 app.get('/helo',(req,res)=>{
   res.send('hello')
 })
