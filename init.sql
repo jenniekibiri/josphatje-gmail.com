@@ -6,3 +6,6 @@ CREATE TABLE books (
 
 INSERT INTO books (author, title)
 VALUES  ('J.K. Rowling', 'Harry Potter');
+
+INSERT INTO books (author, title)
+VALUES  ('tania', 'deployment');
