@@ -5,7 +5,7 @@ const cors = require('cors')
 const { pool } = require('./config')
 
 const app = express()
-
+app.use(helmet())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
